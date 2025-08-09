@@ -43,7 +43,7 @@ Custom exception class for handling component-related errors with descriptive me
 ### Basic Implementation
 
 ```typescript
-import BaseAdapter, { BaseAdapterTypes } from "larascript-core-bundle";
+import BaseAdapter, { BaseAdapterTypes } from "ben-shepherd/larascript-core-bundle";
 
 // Define your component interface
 interface StorageProvider {
@@ -85,7 +85,7 @@ class StorageService extends BaseAdapter<StorageProviderTypes> {
 ### Error Handling
 
 ```typescript
-import AdapterException from "larascript-core-bundle";
+import AdapterException from "ben-shepherd/larascript-core-bundle";
 
 try {
   const component = service.getAdapter("nonexistent");

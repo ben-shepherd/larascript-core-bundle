@@ -8,9 +8,7 @@ import { Containers, Kernel } from "@/kernel/Kernel";
  */
 export const appSingleton = <T extends Containers, K extends keyof T = keyof T>(
   name: K,
-): T[K] => {
-  return AppSingleton.container(name as keyof Containers);
-};
+) => AppSingleton.container<T>(name) as T[K];
 
 /**
  * Short hand for App.env()
@@ -81,16 +79,16 @@ export class AppSingleton extends BaseSingleton {
    * @param name The name of the container
    * @returns The container if it exists, or throws an UninitializedContainerError if not
    */
-  public static container<K extends keyof Containers = keyof Containers>(
+  public static container<T extends Containers, K extends keyof T = keyof T>(
     name: K,
-  ): Containers[K] {
+  ): T[K] {
     const kernel = Kernel.getInstance();
 
-    if (!kernel.containers.has(name)) {
+    if (!kernel.containers.has(name as keyof Containers)) {
       throw new UninitializedContainerError(name as string);
     }
 
-    return kernel.containers.get(name);
+    return kernel.containers.get(name as keyof Containers) as T[K];
   }
 
   /**

@@ -68,8 +68,8 @@ type Containers = {
 ### Basic Kernel Setup
 
 ```typescript
-import { Kernel, KernelConfig, KernelOptions } from "larascript-core-bundle";
-import { EnvironmentType } from "larascript-core-bundle";
+import { Kernel, KernelConfig, KernelOptions } from "ben-shepherd/larascript-core-bundle";
+import { EnvironmentType } from "ben-shepherd/larascript-core-bundle";
 
 // Define your container types
 interface AppContainers {
@@ -106,7 +106,7 @@ if (kernel.booted()) {
 ### Provider Management
 
 ```typescript
-import { Kernel } from "larascript-core-bundle";
+import { Kernel } from "ben-shepherd/larascript-core-bundle";
 
 // Check if specific providers are ready
 if (Kernel.isProviderReady('DatabaseProvider')) {
@@ -124,7 +124,7 @@ console.log('Prepared providers:', kernel.preparedProviders);
 ### Custom Provider Implementation
 
 ```typescript
-import { IProvider } from "larascript-core-bundle";
+import { IProvider } from "ben-shepherd/larascript-core-bundle";
 
 class CustomProvider implements IProvider {
   async register(): Promise<void> {
@@ -151,7 +151,7 @@ const config: KernelConfig = {
 ### Environment-Specific Configuration
 
 ```typescript
-import { EnvironmentType } from "larascript-core-bundle";
+import { EnvironmentType } from "ben-shepherd/larascript-core-bundle";
 
 const getProviders = (environment: EnvironmentType): IProvider[] => {
   const baseProviders = [
@@ -203,7 +203,7 @@ Always set the environment in your kernel configuration to ensure proper applica
 The kernel automatically sets the application environment in `AppSingleton`, making it available throughout your application:
 
 ```typescript
-import { AppSingleton } from "larascript-core-bundle";
+import { AppSingleton } from "ben-shepherd/larascript-core-bundle";
 
 // After kernel boot, environment is available
 const app = AppSingleton.getInstance();

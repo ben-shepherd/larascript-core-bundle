@@ -1,4 +1,4 @@
-import { AppSingleton } from "@/app/AppSingleton";
+import { AppSingleton } from "@/app";
 import { Environment } from "@/consts";
 import { UninitializedContainerError } from "@/exceptions";
 import { Kernel } from "@/kernel";
@@ -35,7 +35,9 @@ describe("Kernel Test Suite", () => {
     });
 
     test("should provide string value", () => {
-      const result = testApp("example");
+      const result = AppSingleton.container<TestContainers, "example">(
+        "example",
+      );
 
       expect(typeof result === "string").toBeTruthy();
       expect(result).toBe("hello world");

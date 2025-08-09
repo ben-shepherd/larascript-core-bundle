@@ -1,5 +1,5 @@
-import { appSingleton } from "@/app/AppSingleton";
+import { AppSingleton } from "@/app/AppSingleton";
 import { TestContainers } from "../providers/providers";
 
 export const testApp = <K extends keyof TestContainers>(name: K) =>
-  appSingleton<TestContainers>(name) as TestContainers[K];
+  AppSingleton.container<TestContainers>(name) as TestContainers[K];

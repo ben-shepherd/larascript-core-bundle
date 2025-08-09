@@ -20,6 +20,8 @@ The Larascript Core Bundle is a TypeScript package that provides essential build
 
 - **[Kernel](./docs/kernel.md)** - Detailed documentation on the application kernel, provider management, bootstrapping, and advanced usage
 
+- **[Dependency](./docs/dependency.md)** - Full guide to the dependency injection system, AppSingleton, DependencyLoader, and best practices
+
 
 - **[Adapters](./src/docs/adapters.md)** - Comprehensive guide to the BaseAdapter pattern, usage examples, 
 and best practices

@@ -32,7 +32,7 @@ The foundation class for implementing service patterns. Provides type-safe confi
 ### Basic Implementation
 
 ```typescript
-import { Service } from "larascript-core-bundle";
+import { Service } from "ben-shepherd/larascript-core-bundle";
 
 // Define your configuration interface
 interface DatabaseConfig {
